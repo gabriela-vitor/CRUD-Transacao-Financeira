@@ -1,14 +1,19 @@
+
 import { Component, OnInit } from '@angular/core';
-import { Router} from '@angular/router';  // Importa o Router para navegação entre rotas
+import { RouterModule} from '@angular/router';  // Importa o Router para navegação entre rotas
 import { TransactionService } from '../../services/transaction.service';  // Importa o serviço de transações
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+
+
+//Como tu á´usando o "standoalone" não precisa do @angular que tava nessa linha aqui, e o erro restante era a falta do import só do "ROuter", meio que router module e router são funções direntes 
 
 @Component({
   selector: 'app-transaction-list',  // Define o seletor do componente
   standalone: true,  // Componente independente
-  imports: [RouterOutlet, CommonModule],
   templateUrl: './transaction-list.component.html',  // Caminho para o template HTML
-  styleUrls: ['./transaction-list.component.css']  // Caminho para o estilo CSS
+  styleUrls: ['./transaction-list.component.css'],  // Caminho para o estilo CSS
+  imports: [CommonModule, RouterModule]
 })
 export class TransactionListComponent implements OnInit {
   transactions: any[] = [];  // Array que irá armazenar as transações obtidas do backend
@@ -45,4 +50,5 @@ export class TransactionListComponent implements OnInit {
       this.transactions = this.transactions.filter(transaction => transaction.id !== id);
     });
   }
+
 }
