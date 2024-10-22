@@ -6,8 +6,6 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 
-//Como tu á´usando o "standoalone" não precisa do @angular que tava nessa linha aqui, e o erro restante era a falta do import só do "ROuter", meio que router module e router são funções direntes 
-
 @Component({
   selector: 'app-transaction-list',  // Define o seletor do componente
   standalone: true,  // Componente independente
