@@ -1,40 +1,46 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { TransactionService } from '../../services/transaction.service';
+import { Router } from '@angular/router';  // Importa o Router para navegação entre rotas
+import { TransactionService } from '../../services/transaction.service';  // Importa o serviço de transações
 
 @Component({
-  selector: 'app-transaction-list',
-  standalone: true,
-  templateUrl: './transaction-list.component.html',
-  styleUrls: ['./transaction-list.component.css']
+  selector: 'app-transaction-list',  // Define o seletor do componente
+  standalone: true,  // Componente independente
+  templateUrl: './transaction-list.component.html',  // Caminho para o template HTML
+  styleUrls: ['./transaction-list.component.css']  // Caminho para o estilo CSS
 })
 export class TransactionListComponent implements OnInit {
-  transactions: any[] = [];
+  transactions: any[] = [];  // Array que irá armazenar as transações obtidas do backend
 
-  constructor(private transactionService: TransactionService) {}
+  // O construtor injeta o serviço de transação e o roteador para navegação
+  constructor(private transactionService: TransactionService, private router: Router) {}
 
+  // Método que é executado assim que o componente é inicializado
   ngOnInit(): void {
-    this.getTransactions();
+    this.getTransactions();  // Chama o método para obter as transações ao iniciar o componente
   }
 
+  // Método para obter todas as transações do backend
   getTransactions(): void {
+    // Chama o serviço de transações e obtém os dados via subscribe
     this.transactionService.getTransactions().subscribe((data: any) => {
-      this.transactions = data;
+      this.transactions = data;  // Armazena as transações no array local
     });
+  }
 
+  // Método para editar uma transação
   editTransaction(id: number): void {
+    // Exibe o ID da transação no console (útil para debug)
     console.log(`Editando transação com ID: ${id}`);
-    this.router.navigate(['/edit-transaction', id])
-}
+    // Navega para a página de edição, passando o ID da transação como parâmetro
+    this.router.navigate(['/edit-transaction', id]);
+  }
 
+  // Método para deletar uma transação
   deleteTransaction(id: number): void {
-    this: this.transactionService.deleteTransaction(id).subscribe(() => {
+    // Chama o serviço de transações para deletar uma transação por ID
+    this.transactionService.deleteTransaction(id).subscribe(() => {
+      // Remove a transação deletada da lista local de transações
       this.transactions = this.transactions.filter(transaction => transaction.id !== id);
-      })
-    }
+    });
   }
 }
-function deleteTransaction(id: any, number: any) {
-  throw new Error('Function not implemented.');
-}
-
