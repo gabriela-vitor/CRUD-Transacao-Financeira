@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { TransactionService } from '../../../services/transaction.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-transaction-form',  // Define o seletor do componente
   standalone: true,  // O componente é standalone (não depende de um módulo pai)
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './transaction-form.component.html',  // Caminho para o template HTML
   styleUrls: ['./transaction-form.component.css']  // Caminho para o estilo CSS
 })

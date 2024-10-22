@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';  // Importa o Router para navegação entre rotas
+import { Router} from '@angular/router';  // Importa o Router para navegação entre rotas
 import { TransactionService } from '../../services/transaction.service';  // Importa o serviço de transações
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-transaction-list',  // Define o seletor do componente
   standalone: true,  // Componente independente
+  imports: [RouterOutlet, CommonModule],
   templateUrl: './transaction-list.component.html',  // Caminho para o template HTML
   styleUrls: ['./transaction-list.component.css']  // Caminho para o estilo CSS
 })

@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';  // Importa o módulo de roteame
 import { TransactionFormComponent } from './transactions/transaction-form/transaction-form/transaction-form.component';  // Importa o componente de formulário de transação
 import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';  // Importa o componente de lista de transação
 
+
 @Component({
   selector: 'app-root',  // Define o seletor do componente raiz
   templateUrl: './app.component.html',  // Define o caminho para o template HTML
@@ -13,3 +14,5 @@ import { TransactionListComponent } from './transactions/transaction-list/transa
 export class AppComponent {
   title = 'frontend';  // Título do aplicativo
 }
+
+

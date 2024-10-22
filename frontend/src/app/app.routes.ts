@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { Routes } from '@angular/router'
 import { TransactionFormComponent } from './transactions/transaction-form/transaction-form/transaction-form.component';
 import { TransactionListComponent } from './transactions/transaction-list/transaction-list.component';
 
