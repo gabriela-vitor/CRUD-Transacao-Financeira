@@ -3,6 +3,7 @@ import { TransactionService } from '../../../services/transaction.service';
 
 @Component({
   selector: 'app-transaction-form',
+  standalone: true,
   templateUrl: './transaction-form.component.html',
   styleUrls: ['./transaction-form.component.css']
 })
