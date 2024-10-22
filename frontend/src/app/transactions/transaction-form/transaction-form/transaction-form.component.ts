@@ -24,7 +24,14 @@ export class TransactionFormComponent {
     };
 
     this.transactionService.addTransaction(transaction).subscribe(() => {
-      // Lógica para sucesso
+      ) => {
+        console.log('Transação adicionada com sucesso!');
+        
+        this.transaction = { description: '', amount: 0, category: '' };
+      },
+      error => {
+        
+        console.error('Erro ao adicionar transação:', error);
     });
   }
 }
