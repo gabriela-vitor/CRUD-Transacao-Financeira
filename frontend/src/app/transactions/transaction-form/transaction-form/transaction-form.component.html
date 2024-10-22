@@ -1,0 +1,16 @@
+<form (ngSubmit)="addTransaction()">
+  <input [(ngModel)]="description" name="description" required placeholder="Descrição" />
+  <input [(ngModel)]="amount" name="amount" required type="number" placeholder="Valor" />
+  <input [(ngModel)]="category" name="category" required placeholder="Categoria" />
+  <select [(ngModel)]="type_id" name="type_id" required>
+    <option *ngFor="let type of transactionTypes" [value]="type.id">{{ type.name }}</option>
+  </select>
+  <button type="submit">Adicionar</button>
+</form>
+
+  
+  
+
+
+
+  

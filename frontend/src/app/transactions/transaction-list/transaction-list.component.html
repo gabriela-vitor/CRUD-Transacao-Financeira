@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let transaction of transactions">
+    {{ transaction.description }} - {{ transaction.amount }} - {{ transaction.category }}
+    <button (click)="editTransaction(transaction.id)">Editar</button>
+    <button (click)="deleteTransaction(transaction.id)">Excluir</button>
+  </li>
+</ul>
